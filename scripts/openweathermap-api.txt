@@ -1,0 +1,89 @@
+openweathermap-api-json.txt
+---------------------------
+
+Here is the JSON REST output from the openweather.com API:
+
+It was collected by running the examples/src/main/java/org/weather/example/MyURLConnection.java test program.
+
+2015-06-15
+==========
+
+- break the JSON string on commas in order to get a quick look at the elements:
+ending 'GET' request to URL : http://api.openweathermap.org/data/2.5/weather?zip=94040,us
+Response Code : 200
+{"coord":{"lon":-122.09
+"lat":37.39}
+"sys":{"type":1
+"id":451
+"message":0.029
+"country":"US"
+"sunrise":1434545233
+"sunset":1434598293}
+"weather":[{"id":701
+"main":"Mist"
+"description":"mist"
+"icon":"50d"}]
+"base":"stations"
+"main":{"temp":298.54
+"pressure":1013
+"humidity":56
+"temp_min":285.93
+"temp_max":308.15}
+"visibility":16093
+"wind":{"speed":6.7
+"deg":340}
+"clouds":{"all":5}
+"dt":1434583236
+"id":0
+"name":"Mountain View"
+"cod":200}
+
+Here is the JSON contents after converting to a string:
+out={"coord":{"lon":-73.99,"lat":40.73},"sys":{"message":0.0134,"country":"US","sunrise":1434619460,"sunset":1434673802},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10d"}],"base":"stations","main":{"temp":291.782,"temp_min":291.782,"temp_max":291.782,"pressure":1024.05,"sea_level":1027.56,"grnd_level":1024.05,"humidity":89},"wind":{"speed":3.22,"deg":145.007},"clouds":{"all":92},"rain":{"3h":0.235},"dt":1434668695,"id":0,"name":"New York City","cod":200}
+
+"top level" elements:
+1 key:coord, value:{"lon":-73.99,"lat":40.73}
+1 key:sys, value:{"message":0.2852,"country":"US","sunrise":1434705869,"sunset":1434760218}
+1 key:weather, value:[{"id":500,"main":"Rain","description":"light rain","icon":"10d"}]
+1 key:base, value:"stations"
+1 key:main, value:{"temp":72.61,"temp_min":72.61,"temp_max":72.61,"pressure":1023.43,"sea_level":1027.18,"grnd_level":1023.43,"humidity":88}
+1 key:wind, value:{"speed":4.47,"deg":332.509}
+1 key:clouds, value:{"all":92}
+1 key:rain, value:{"3h":0.305}
+1 key:dt, value:1434750020
+1 key:id, value:0
+1 key:name, value:"New York City"
+1 key:cod, value:200
+
+Elements under "main"
+2 key:temp, value:72.61
+2 key:temp_min, value:72.61
+2 key:temp_max, value:72.61
+2 key:pressure, value:1023.43
+2 key:sea_level, value:1027.18
+2 key:grnd_level, value:1023.43
+2 key:humidity, value:88
+
+Elements under "weather"
+3 weather is an Array
+3 {"id":500,"main":"Rain","description":"light rain","icon":"10d"}
+
+
+2015-07-03
+==========
+
+ERROR 
+
+The openweathermap api changed. This API seems somewhat unstable. 
+- I had to comment out code because I was getting a null pointer exception
+
+output=
+{"coord":{"lon":-74.01,"lat":40.71},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"cmc stations","main":{"temp":79.77,"pressure":1014,"humidity":37,"temp_min":77,"temp_max":82.4},"wind":{"speed":4.54},"clouds":{"all":75},"dt":1435956910,"sys":{"type":1,"id":1975,"message":0.0066,"country":"US","sunrise":1435915800,"sunset":1435969836},"id":5128581,"name":"New York","cod":200}
+
+2015-07-04
+==========
+
+FIXED: the next day the wind degree element returned
+- So, I put back the code I had commented out.
+- Also added some error handling to avoid a null pointer exception
+

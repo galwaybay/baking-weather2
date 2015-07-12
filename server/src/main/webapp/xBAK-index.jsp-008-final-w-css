@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<%@ page import="org.weather.server.*" %>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Baking Weather</title>
+  <meta name="description" content="Baking Weather">
+  <meta name="author" content="Tony Kavanagh">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+<%
+    WeatherBaking baking = new WeatherBaking();
+    baking.processUrl();
+%>
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+      <div class="five columns">
+        <p><img src="images/spacer.gif" height="1" width="4"> <b>Baking in <%= baking.getCity() %></b></p>
+      </div>
+      <div class="four columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+    </div>
+
+    <!-- START DATA ROWS -->
+    <div class="row">
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+      <div class="two columns">
+        Temperature:
+      </div>
+      <div class="four columns">
+        <%= baking.getTemperature() %>
+      </div>
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+      <div class="two columns">
+        Humidity:
+      </div>
+      <div class="four columns">
+        <%= baking.getHumidity() %>
+      </div>
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+      <div class="two columns">
+        Wind Speed:
+      </div>
+      <div class="four columns">
+        <%= baking.getWind() %>
+      </div>
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+      <div class="two columns">
+        Wind Direction:
+      </div>
+      <div class="four columns">
+        <%= baking.getWindDir() %>
+      </div>
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+      <div class="two columns">
+        Barometer:
+      </div>
+      <div class="four columns">
+        <%= baking.getPressure() %>
+      </div>
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+      <div class="two columns">
+        Conditions:
+      </div>
+      <div class="four columns">
+        <%= baking.getSky() %>
+      </div>
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+      <div class="two columns">
+        Current Time:
+      </div>
+      <div class="four columns">
+        <%= baking.getTime() %>
+      </div>
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <p><img src="images/spacer.gif" height="1" width="3"></p>
+      </div>
+      <div class="two columns">
+        <p>Current Date:</p>
+      </div>
+      <div class="four columns">
+        <p><%= baking.getDate() %></p>
+      </div>
+      <div class="three columns">
+        <p><img src="images/spacer.gif" height="1" width="3"></p>
+      </div>
+    </div>
+    <!-- END DATA ROWS -->
+    <!-- START BAKING COMMENTS -->
+    <div class="row">
+      <div class="three columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+      <div class="two columns">
+        Dough:
+      </div>
+      <div class="five columns">
+        May need extra flour
+      </div>
+      <div class="two columns">
+        <img src="images/spacer.gif" height="1" width="3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <p><img src="images/spacer.gif" height="1" width="3"></p>
+      </div>
+      <div class="two columns">
+        <p>Baking:</p>
+      </div>
+      <div class="five columns">
+        <p>Tough day to bake</p>
+      </div>
+      <div class="two columns">
+        <p><img src="images/spacer.gif" height="1" width="3"></p>
+      </div>
+    </div>
+    <!-- END BAKING COMMENTS -->
+    <div class="row">
+      <center>
+        <table style="width:60%" border="0">
+          <tr>
+            <td><img src="images/spacer.gif" height="1" width="3"></td> 
+            <td><img src="images/feather-60x60.png" alt="Feather" height="60" width="60"></td> 
+            <td></td> 
+        </table>
+      </center>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

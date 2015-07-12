@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<%@ page import="org.weather.server.*" %>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Baking Weather</title>
+  <meta name="description" content="Baking Weather">
+  <meta name="author" content="Tony Kavanagh">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+<%
+    WeatherBaking baking = new WeatherBaking();
+    baking.processUrl();
+%>
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <center>
+      <p><b>Baking in <%= baking.getCity() %></b></p>
+      </center>
+    </div>
+    <div class="row">
+      <div class="four columns">
+        <p>foo</p>
+      </div>
+      <div class="two columns">
+        <p>Temperature:</p>
+      </div>
+      <div class="two columns">
+        <p><%= baking.getTemperature() %></p>
+      </div>
+      <div class="four columns">
+        <p>foo</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns">
+        <p>foo</p>
+      </div>
+      <div class="two columns">
+            <p>Temperature:</p>
+            <p>Humidity:</p>
+            <p>Wind Speed:</p>
+            <p>Wind Direction:</p>
+      </div>
+      <div class="two columns">
+            <p><%= baking.getTemperature() %></p>
+            <p><%= baking.getHumidity() %></p>
+            <p><%= baking.getWind() %></p>
+            <p><%= baking.getWindDir() %></p>
+      </div>
+      <div class="four columns">
+        <p>foo</p>
+      </div>
+	  <!--
+          <tr>
+            <td nowrap width="30%">Barometer:</td>
+            <td nowrap width="70%"><%= baking.getPressure() %></td>
+          </tr>
+          <tr>
+            <td nowrap width="30%">Conditions:</td>
+            <td nowrap width="70%"><%= baking.getSky() %></td>
+          </tr>
+          <tr>
+            <td nowrap width="30%">Current Time:</td>
+            <td nowrap width="70%"><%= baking.getTime() %> </td>
+          </tr>
+          <tr>
+            <td nowrap width="30%">Current Date:</td>
+            <td nowrap width="70%"><%= baking.getDate() %> </td>
+          </tr>
+	  -->
+    </div>
+    <p> <br> </p>
+    <div class="row">
+      <center>
+        <table style="width:60%" border="0">
+          <tr>
+            <td nowrap width="30%">Dough:</td>
+            <td nowrap width="70%">May need extra flour</td> 
+          </tr>
+          <tr>
+            <td nowrap width="30%">Baking:</td>
+            <td nowrap width="70%">Tough day to bake</td> 
+          </tr>
+        </table>
+      </center>
+    </div>
+    <p> <br> </p>
+    <div class="row">
+      <center>
+        <table style="width:60%" border="0">
+          <tr>
+            <td><img src="images/spacer.gif" height="1" width="3"></td> 
+            <td><img src="images/feather-60x60.png" alt="Feather" height="60" width="60"></td> 
+            <td></td> 
+        </table>
+      </center>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

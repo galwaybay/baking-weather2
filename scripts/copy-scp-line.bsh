@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# This script can be used (under OSX) to copy a local file to the AWS user home directory
+# of an EC2 instance. 
+#
+# Fill in values for the variables below to enable
+
+export KEY_PATH=/Users/xxxxxxxx/AMAZON_AWS/PRIVATE_KEY_FOLDER
+export LOCAL_FILENAME=../server/target/BakingWeather.war
+export AWS_IP_ADDR=54.xxx.xx.xxx
+export KEY_NAME=my-key-pair.pem
+export EC2_USER=ec2-user
+
+scp -i $KEY_PATH/$KEY_NAME $LOCAL_FILENAME  $EC2_USER@$AWS_IP_ADDR:~
+
